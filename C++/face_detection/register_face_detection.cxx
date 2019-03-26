@@ -33,10 +33,9 @@
  * \brief register ocv face_detection into a plugin
  */
 
-#include <arrows/ocv/face_detection/kwiver_algo_ocv_face_detection_export.h>
+#include <kwiver_algo_ocv_face_detection_export.h>
 #include <vital/algo/algorithm_factory.h>
-
-#include <arrows/ocv/face_detection/face_detection.h>
+#include <face_detection.h>
 
 
 namespace kwiver {
