@@ -1,1 +1,1 @@
-add_subdirectory(face_detection)
+add_subdirectory(arrows)
