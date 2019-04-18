@@ -1,0 +1,8 @@
+#+
+# Setup file to configure environment for KWIVER and the
+# face_detector implementations
+#-
+source @kwiver_DIR@/setup_KWIVER.sh
+export KWIVER_DEFAULT_LOG_LEVEL=ERROR
+export KWIVER_PLUGIN_PATH=@CMAKE_BINARY_DIR@/lib/kwiver_face_detection/:${KWIVER_PLUGIN_PATH}
+
