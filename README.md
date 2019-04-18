@@ -25,11 +25,10 @@ File Name                             |  Description
  
 
 # Building #
-  In a bash terminal in the kwiver source directory::
+  In a bash terminal in the project directory::
   
-    cmake -S . -B ../../build/release/
+    cmake .
   
-  In the kwiver build directory::
   
     make -j7
   
