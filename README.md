@@ -10,16 +10,12 @@ File Name                             |  Description
 [face_detection_images.txt](https://github.com/hdefazio/face_detection/blob/master/image/face_detection_images.txt) | Text file that lists the input images' locations 
 [face_detection.cxx](https://github.com/hdefazio/face_detection/blob/master/image/face_detection.cxx) | Face detector written in C++
 [face_detection.h](https://github.com/hdefazio/face_detection/blob/master/image/face_detection.h) | Face detector header file written in C++
-[register_algorithms.cxx](https://github.com/hdefazio/face_detection/blob/master/image/register_algorithms.cxx) | Face detector   added to register the detector
 [CMakeLists.txt (C++)](https://github.com/hdefazio/face_detection/blob/master/image/CMakeLists.txt) | Face detector source and header files added
-[output](https://github.com/hdefazio/face_detection/blob/master/image/output) | Output directory where the annotated images are stored
 [images](https://github.com/hdefazio/face_detection/blob/master/image/images) | Directory where the sample images are stored 
 [videos](https://github.com/hdefazio/face_detection/blob/master/video/videos) | Directory where the sample videos are stored
 [haarcascade_frontalface_alt.xml](https://github.com/hdefazio/face_detection/blob/master/haarcascade_frontalface_alt.xml) | The Haarcascade classifier used
 [face_detection_video.pipe](https://github.com/hdefazio/face_detection/blob/master/video/face_detection_video.pipe) | Sprokit pipeline file that runs the face detector on a video
-[face_detection_output](https://github.com/hdefazio/face_detection/blob/master/video/face_detection_output) | Output directory where the annotated frames from the video are stored
 [faceDetection.py](https://github.com/hdefazio/face_detection/blob/master/python/faceDetection.py) | Face detector written in Python
-[faceDetection.pyc](https://github.com/hdefazio/face_detection/blob/master/python/faceDetection.pyc) | Bytecode of the Python face detector
 [face_detection_python.pipe](https://github.com/hdefazio/face_detection/blob/master/python/face_detection_python.pipe) | Sprokit pipeline file that runs the python face detector on a list of input images
 [CMakeLists.txt (Python)](https://github.com/hdefazio/face_detection/blob/master/python/CMakeLists.txt) | Face detector source file added
  
