@@ -57,14 +57,14 @@ detect( vital::image_container_sptr image_data) const
   String face_cascade_path = "haarcascade_frontalface_alt.xml";
   auto detected_set = std::make_shared< kwiver::vital::detected_object_set>();
   using namespace kwiver::arrows::ocv;
-  cv::Mat frame = image_container::vital_to_ocv( image_data->get_image(), 
+  cv::Mat frame = image_container::vital_to_ocv( image_data->get_image(),
                                                image_container::RGB_COLOR );
   cv::Mat frame_gray;
   std::vector<Rect> faces;
 
   if(!face_cascade.load(face_cascade_path)) cout << "Error loading face cascade.\n";
 
-  cvtColor( frame, frame_gray, CV_RGB2GRAY );  // Convert frame to gray
+  cvtColor( frame, frame_gray, cv::COLOR_RGB2GRAY );  // Convert frame to gray
   equalizeHist(frame_gray, frame_gray); //improve contrast of gray frame
   face_cascade.detectMultiScale(frame_gray, faces);
 
