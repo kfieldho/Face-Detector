@@ -14,6 +14,10 @@ find_package(fletch REQUIRED)
 find_package(kwiver REQUIRED)
 find_package(OpenCV REQUIRED)
 
+configure_file( ${CMAKE_SOURCE_DIR}/pipelines/cascade_classifier_video.pipe.in
+                ${CMAKE_BINARY_DIR}/cascade_classifier_video.pipe @ONLY )
+
+
 link_directories("${KWIVER_LIBRARY_DIRS}")
 
 # Utilties that make it easy to cmake KWIVER components
