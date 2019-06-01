@@ -1,10 +1,10 @@
 #
-# CMake file for the arrows.ocv.face_detections
+# CMake file for the arrows.ocv.cascade_classifier
 #
 cmake_minimum_required(VERSION 3.3)
 
 # The name of this KWIVER Package
-set( kwiver_plugin_face_detection "kwiver_face_detection" )
+set( kwiver_plugin_cascade_classifier "kwiver_cascade_classifier" )
 
 #
 # We'll use fletch to get our 3rd party dependencies (like OpenCV),
@@ -26,12 +26,12 @@ include(kwiver-flags)
 include(kwiver-configcheck)
 
 set( sources
-  register_face_detection.cxx
-  face_detection.cxx
+  register_cascade_classifier.cxx
+  cascade_classifier.cxx
   )
 
 set( headers
-  face_detection.h
+  cascade_classifier.h
   )
 
 #
@@ -46,13 +46,13 @@ include_directories( ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR} )
 
 ###
 # Create and use a Plugin Path for this package
-kwiver_make_module_path( ${CMAKE_BINARY_DIR} ${kwiver_plugin_face_detection} )
+kwiver_make_module_path( ${CMAKE_BINARY_DIR} ${kwiver_plugin_cascade_classifier} )
 kwiver_add_module_path( ${kwiver_module_path_result} )
 
 ###
 # Create the  Face Detection Plugin
-kwiver_add_plugin( kwiver_algo_ocv_face_detection
-  SUBDIR       ${kwiver_plugin_face_detection}
+kwiver_add_plugin( kwiver_algo_ocv_cascade_classifier
+  SUBDIR       ${kwiver_plugin_cascade_classifier}
   SOURCES      ${sources} ${headers}
   PRIVATE      kwiver_algo_ocv
                ${KWIVER_LIBRARIES}
