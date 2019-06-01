@@ -1,1 +1,0 @@
-/home/hanna/Documents/kwiver/src/kwiver/examples/images/people.jpg
