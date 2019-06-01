@@ -9,8 +9,8 @@ process input
 #==========================================================================
 process detector
 	:: image_object_detector
-	detector:type = face
-  detector:face:classifier_file = /fletch/install/share/OpenCV/haarcascades/haarcascade_profileface.xml
+	detector:type = cascade_classifier
+  detector:cascade_classifier:classifier_file = /fletch/BUILD/install/share/OpenCV/haarcascades/haarcascade_profileface.xml
 
 connect from input.image to detector.image
 

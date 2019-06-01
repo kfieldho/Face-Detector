@@ -30,12 +30,12 @@
 
 /**
  * \file
- * \brief register ocv face_detection into a plugin
+ * \brief register ocv cascade_classifier into a plugin
  */
 
-#include <kwiver_algo_ocv_face_detection_export.h>
+#include <kwiver_algo_ocv_cascade_classifier_export.h>
 #include <vital/algo/algorithm_factory.h>
-#include <face_detection.h>
+#include <cascade_classifier.h>
 
 
 namespace kwiver {
@@ -44,18 +44,18 @@ namespace ocv {
 
 namespace {
 
-static auto const module_name         = std::string{ "arrows.ocv.face_detection" };
+static auto const module_name         = std::string{ "arrows.ocv.cascade_classifier" };
 //static auto const module_version      = std::string{ "1.0" };
 //static auto const module_organization = std::string{ "Kitware Inc." };
 
 
 // ----------------------------------------------------------------------------
-//template <typename face_detection_t>
-void register_face_detection( kwiver::vital::plugin_loader& vpm )
+//template <typename cascade_classifier_detection_t>
+void register_cascade_classifier( kwiver::vital::plugin_loader& vpm )
 {
   //using kvpf = kwiver::vital::plugin_factory;
 
-  auto fact = vpm.ADD_ALGORITHM( "face", kwiver::arrows::ocv::face_detection );
+  auto fact = vpm.ADD_ALGORITHM( "cascade_classifier", kwiver::arrows::ocv::cascade_classifier );
   fact->add_attribute( kwiver::vital::plugin_factory::PLUGIN_DESCRIPTION,
                     "" )
     .add_attribute( kwiver::vital::plugin_factory::PLUGIN_MODULE_NAME, module_name )
@@ -68,7 +68,7 @@ void register_face_detection( kwiver::vital::plugin_loader& vpm )
 
 // ----------------------------------------------------------------------------
 extern "C"
-KWIVER_ALGO_OCV_FACE_DETECTION_EXPORT
+KWIVER_ALGO_OCV_CASCADE_CLASSIFIER_EXPORT
 void
 register_factories( kwiver::vital::plugin_loader& vpm )
 {
@@ -77,7 +77,7 @@ register_factories( kwiver::vital::plugin_loader& vpm )
     return;
   }
 
-  register_face_detection(vpm);
+  register_cascade_classifier(vpm);
 
   vpm.mark_module_as_loaded( module_name );
 }

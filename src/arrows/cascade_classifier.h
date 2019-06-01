@@ -1,5 +1,5 @@
-#ifndef ARROWS_OCV_FACE_DETECTOR_H
-#define ARROWS_OCV_FACE_DETECTOR_H
+#ifndef ARROWS_OCV_CASCADE_CLASSIFIER_H
+#define ARROWS_OCV_CASCADE_CLASSIFIER_H
 
 #include <arrows/ocv/kwiver_algo_ocv_export.h>
 
@@ -9,12 +9,12 @@ namespace kwiver {
 namespace arrows {
 namespace ocv {
 
-class KWIVER_ALGO_OCV_EXPORT face_detection
-  : public vital::algorithm_impl< face_detection, vital::algo::image_object_detector>
+class KWIVER_ALGO_OCV_EXPORT cascade_classifier
+  : public vital::algorithm_impl< cascade_classifier, vital::algo::image_object_detector>
 {
 public:
-  face_detection();
-  virtual ~face_detection();
+  cascade_classifier();
+  virtual ~cascade_classifier();
 
   virtual vital::config_block_sptr get_configuration() const;
   virtual void set_configuration(vital::config_block_sptr config);
@@ -30,4 +30,4 @@ private:
 
 } } } // end namespace
 
-#endif /* ARROWS_OCV_FACE_DETECTOR_H */
+#endif /* ARROWS_OCV_CASCADE_CLASSIFIER_H */
