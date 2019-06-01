@@ -1,0 +1,45 @@
+#==========================================================================
+process input
+	:: video_input
+  video_filename = faces.mp4
+
+	frame_time = .04
+	video_reader:type = vidl_ffmpeg
+
+#==========================================================================
+process detector
+	:: image_object_detector
+	detector:type = face
+  detector:face:classifier_file = /fletch/install/share/OpenCV/haarcascades/haarcascade_profileface.xml
+
+connect from input.image to detector.image
+
+#==========================================================================
+process draw
+	:: draw_detected_object_set
+	block draw_algo
+		type = ocv
+		ocv:default_line_thickness = 4
+	endblock
+
+connect from input.image to draw.image
+connect from detector.detected_object_set to draw.detected_object_set
+
+#process writer
+#  :: image_writer
+#  file_name_template = out/image%04d.jpg
+#  image_writer:type  = ocv
+#
+#connect from draw.image to writer.image
+
+process output
+	:: output_adapter
+
+connect from draw.image to output.image
+
+#==========================================================================
+config _pipeline:_edge
+	capacity = 2
+
+
+
