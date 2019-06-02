@@ -6,6 +6,8 @@ Test Code Snippet:
 
 https://raw.githubusercontent.com/kfieldho/Face-Detector/master/CMakeLists.txt#L7-L9
 
+https://github.com/kfieldho/Face-Detector/blob/e0675b12bbb564b0ed246d7d58e5a97654e07d23/CMakeLists.txt#L7-L9
+
 # Organization #
 
 File Name                             |  Description
