@@ -2,6 +2,10 @@
 
 This project demonstrates a face detector based on KWIVER using the [Haar Cascade classifier](https://docs.opencv.org/2.4/modules/objdetect/doc/cascade_classification.html). Specifically, this project uses the [frontal face classifier](haarcascade_frontalface_alt.xml). The detector is demonstrated in two languages, C++ and Python. The C++ example implements a [detection arrow](https://github.com/Kitware/kwiver/blob/master/doc/manuals/arrows/opencv.rst) that offers both image and video options. The Python example is a KWIVER process. 
 
+Test Code Snippet:
+
+https://raw.githubusercontent.com/kfieldho/Face-Detector/master/CMakeLists.txt#L7-L9
+
 # Organization #
 
 File Name                             |  Description
