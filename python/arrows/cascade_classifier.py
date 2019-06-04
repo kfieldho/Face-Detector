@@ -30,6 +30,7 @@ from __future__ import print_function
 from vital.algo import ImageObjectDetector
 from vital.types import DetectedObjectSet, DetectedObject, BoundingBox, DetectedObjectType
 import cv2
+import numpy as np
 import os
 
 class CascadeClassifier(ImageObjectDetector):
@@ -71,7 +72,7 @@ class CascadeClassifier(ImageObjectDetector):
 
     def detect(self, image_c):
 	cascade_classifier = cv2.CascadeClassifier(self.classifier_file)
-        image = image_c.image().asarray()
+        image = image_c.image().asarray().astype(np.uint8)
 	detected_object_set = DetectedObjectSet()
         # NOTE: assarray() function return an rgb representation of the image
 	gray_image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
