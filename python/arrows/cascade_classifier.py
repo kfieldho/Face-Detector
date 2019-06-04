@@ -28,7 +28,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 from __future__ import print_function
 from vital.algo import ImageObjectDetector
-from vital.types import DetectedObjectSet, DetectedObject, BoundingBox
+from vital.types import DetectedObjectSet, DetectedObject, BoundingBox, DetectedObjectType
+import cv2
 import os
 
 class CascadeClassifier(ImageObjectDetector):
@@ -47,15 +48,16 @@ class CascadeClassifier(ImageObjectDetector):
         # Inherit from the base class
         cfg = super(ImageObjectDetector, self).get_configuration()
         cfg.set_value( "classifier_file", self.classifier_file )
-        cfg.set_value( "scale_factor", self.scale_factor )
-        cfg.set_value( "min_neighbor", self.min_neighbor )
+        cfg.set_value( "scale_factor", str(self.scale_factor) )
+        cfg.set_value( "min_neighbor", str(self.min_neighbor) )
+        return cfg
 
     def set_configuration( self, cfg_in ):
         cfg = self.get_configuration()
         cfg.merge_config(cfg_in)
         self.classifier_file = cfg.get_value( "classifier_file" )
-        self.scale_factor = cfg.get_value( "scale_factor" )
-        self.min_neighbor = cfg.get_value( "min_neighbor" )
+        self.scale_factor = float(cfg.get_value( "scale_factor" ))
+        self.min_neighbor = int(cfg.get_value( "min_neighbor" ))
 
     def check_configuration( self, cfg):
         #TODO: Check validity of scale factor and min_neigbor
@@ -74,7 +76,7 @@ class CascadeClassifier(ImageObjectDetector):
         # NOTE: assarray() function return an rgb representation of the image
 	gray_image = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 	gray_image = cv2.equalizeHist(gray_image)
-	faces = face_cascade.detectMultiScale(gray_image, self.scale_factor,
+	faces = cascade_classifier.detectMultiScale(gray_image, self.scale_factor,
                                                 self.min_neighbor)
 
 	for (x, y, w, h) in faces:
