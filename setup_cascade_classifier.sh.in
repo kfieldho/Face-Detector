@@ -5,4 +5,6 @@
 source @kwiver_DIR@/setup_KWIVER.sh
 export KWIVER_DEFAULT_LOG_LEVEL=ERROR
 export KWIVER_PLUGIN_PATH=@CMAKE_BINARY_DIR@/lib/kwiver_cascade_classifier/:${KWIVER_PLUGIN_PATH}
+export SPROKIT_PYTHON_MODULES=example.arrows:${SPROKIT_PYTHON_MODULES}
+export PYTHONPATH=@kwiver_python_output_path@/@python_sitename@:${PYTHONPATH}
 
