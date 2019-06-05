@@ -41,6 +41,7 @@ class CascadeClassifier(ImageObjectDetector):
     def __init__(self):
         ImageObjectDetector.__init__(self)
         self.classifier_file = ""
+        self.classifier_name = "Face"
         self.scale_factor = 1.1
         self.min_neighbor = 3
         self.face_cascade = None
@@ -49,6 +50,7 @@ class CascadeClassifier(ImageObjectDetector):
         # Inherit from the base class
         cfg = super(ImageObjectDetector, self).get_configuration()
         cfg.set_value( "classifier_file", self.classifier_file )
+        cfg.set_value( "classifier_name", self.classifier_name )
         cfg.set_value( "scale_factor", str(self.scale_factor) )
         cfg.set_value( "min_neighbor", str(self.min_neighbor) )
         return cfg
@@ -57,6 +59,7 @@ class CascadeClassifier(ImageObjectDetector):
         cfg = self.get_configuration()
         cfg.merge_config(cfg_in)
         self.classifier_file = cfg.get_value( "classifier_file" )
+        self.classifier_name = cfg.get_value( "classifier_name" )
         self.scale_factor = float(cfg.get_value( "scale_factor" ))
         self.min_neighbor = int(cfg.get_value( "min_neighbor" ))
 
@@ -82,7 +85,7 @@ class CascadeClassifier(ImageObjectDetector):
 
 	for (x, y, w, h) in faces:
             bbox = BoundingBox(x, y, x+w, y+h)
-            dot = DetectedObjectType("face", 1.0)
+            dot = DetectedObjectType(self.classifier_name, 1.0)
             detected_object_set.add(DetectedObject(bbox, 1.0, dot))
         return detected_object_set
 
