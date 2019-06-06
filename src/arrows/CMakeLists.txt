@@ -6,28 +6,8 @@ cmake_minimum_required(VERSION 3.3)
 # The name of this KWIVER Package
 set( kwiver_plugin_cascade_classifier "kwiver_cascade_classifier" )
 
-#
-# We'll use fletch to get our 3rd party dependencies (like OpenCV),
-# KWIVER, and OpenCV
-#
-find_package(fletch REQUIRED)
-find_package(kwiver REQUIRED)
-find_package(OpenCV REQUIRED)
-
-configure_file( ${CMAKE_SOURCE_DIR}/pipelines/cascade_classifier_video.pipe.in
-                ${CMAKE_BINARY_DIR}/cascade_classifier_video.pipe @ONLY )
-
 
 link_directories("${KWIVER_LIBRARY_DIRS}")
-
-# Utilties that make it easy to cmake KWIVER components
-include(kwiver-utils)
-
-# Compiler flag settings used by KWIVER
-include(kwiver-flags)
-
-# Check to be sure that the compiler supports features required by KWIVEr
-include(kwiver-configcheck)
 
 set( sources
   register_cascade_classifier.cxx
