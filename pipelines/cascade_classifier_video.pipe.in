@@ -1,7 +1,7 @@
 #==========================================================================
 process input
 	:: video_input
-  video_filename = @CMAKE_SOURCE_DIR@/data/faces.mp4
+  video_filename = @faces_mp4@
 
 	frame_time = .04
 	video_reader:type = vidl_ffmpeg
