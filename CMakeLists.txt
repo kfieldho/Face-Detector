@@ -3,6 +3,22 @@
 #
 cmake_minimum_required(VERSION 3.3)
 
+# Use CMake's ExternalData
+include(ExternalData)
+
+set(DATA_KITWARE_COM "https://data.kitware.com/api/v1/file/hashsum/")
+
+list(APPEND ExternalData_URL_TEMPLATES
+  "${DATA_KITWARE_COM}/%(algo)/%(hash)/download"
+  )
+
+ExternalData_Expand_Arguments(external_data
+  faces_mp4
+  DATA{data/faces.mp4}
+)
+
+ExternalData_Add_Target(external_data)
+
 #
 # We'll use fletch to get our 3rd party dependencies (like OpenCV),
 # KWIVER, and OpenCV
